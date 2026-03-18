@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3q5v8n1m2x7"]
+
+[ext_resource type="Script" path="res://scenes/home/home.gd" id="1_home"]
+[ext_resource type="Theme" path="res://assets/themes/app_theme.tres" id="2_theme"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_theme")
+script = ExtResource("1_home")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 1, 1, 1)
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 0.0
+offset_right = 366.0
+offset_bottom = 844.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeaderPanel" type="PanelContainer" parent="MainContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 140)
+
+[node name="HeaderContent" type="VBoxContainer" parent="MainContainer/HeaderPanel"]
+layout_mode = 2
+alignment = 1
+
+[node name="AppTitle" type="Label" parent="MainContainer/HeaderPanel/HeaderContent"]
+layout_mode = 2
+text = "Windsor ↔ Toronto"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+
+[node name="AppSubtitle" type="Label" parent="MainContainer/HeaderPanel/HeaderContent"]
+layout_mode = 2
+text = "RideShare"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 20
+
+[node name="Spacer1" type="Control" parent="MainContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+size_flags_vertical = 3
+
+[node name="RoutesLabel" type="Label" parent="MainContainer"]
+layout_mode = 2
+text = "Select Your Route"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.129, 0.137, 0.494, 1)
+
+[node name="Spacer2" type="Control" parent="MainContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="WindsorToTorontoBtn" type="Button" parent="MainContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 80)
+text = "Windsor → Toronto
+🕔  5:00 AM Departure"
+theme_override_font_sizes/font_size = 18
+
+[node name="Spacer3" type="Control" parent="MainContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 16)
+
+[node name="TorontoToWindsorBtn" type="Button" parent="MainContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 80)
+text = "Toronto → Windsor
+🕒  3:00 PM Departure"
+theme_override_font_sizes/font_size = 18
+
+[node name="Spacer4" type="Control" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MainContainer/WindsorToTorontoBtn" to="." method="_on_windsor_to_toronto_pressed"]
+[connection signal="pressed" from="MainContainer/TorontoToWindsorBtn" to="." method="_on_toronto_to_windsor_pressed"]

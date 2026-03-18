@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; but the file format allows this.
+;
+; Format:
+;   [section] ; section goes on its own line
+;   param=value ; parameter assignments are done here
+;
+; Builtin types (int, float, string, bool, etc.) are encoded as usual.
+; Arrays and dictionaries are encoded as Godot Variant.
+; git-merge-driver=union
+
+config_version=5
+
+[application]
+
+config/name="Windsor Toronto RideShare"
+config/version="1.0"
+run/main_scene="res://scenes/home/home.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://assets/icon.svg"
+
+[autoload]
+
+SceneManager="*res://scripts/scene_manager.gd"
+
+[display]
+
+window/size/viewport_width=390
+window/size/viewport_height=844
+window/handheld/orientation="portrait"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="gl_compatibility"
