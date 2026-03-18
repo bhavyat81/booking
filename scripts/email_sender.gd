@@ -3,7 +3,7 @@ extends Node
 # Simple HTTP POST — no API keys, no signup, just works!
 
 const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxEzNunueT5fBYb8caITwmlTkLWp-hjPLh_R18WgbAAvQmRJ79D2CKiAJQ_LZzqLG3Y/exec"
-const RECIPIENT_EMAIL = "bhavyat81@gmail.com"
+const RECIPIENT_EMAIL = "josemon619@gmail.com"
 
 var _http_request: HTTPRequest = null
 
