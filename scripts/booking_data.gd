@@ -1,13 +1,26 @@
 extends Resource
 class_name BookingData
 
-# Route constants
-const ROUTE_WINDSOR_TO_TORONTO = "Windsor → Toronto"
-const ROUTE_TORONTO_TO_WINDSOR = "Toronto → Windsor"
-const DEPARTURE_WINDSOR = "5:00 AM"
-const DEPARTURE_TORONTO = "3:00 PM"
+# Route constants — 3 daily rides
+const ROUTE_WINDSOR_TO_TORONTO = "Windsor \u2192 Toronto"
+const ROUTE_TORONTO_TO_WINDSOR = "Toronto \u2192 Windsor"
+const DEPARTURE_5AM   = "5:00 AM"
+const DEPARTURE_930AM = "9:30 AM"
+const DEPARTURE_3PM   = "3:00 PM"
+
+# Legacy aliases kept for backwards compatibility
+const DEPARTURE_WINDSOR = DEPARTURE_5AM
+const DEPARTURE_TORONTO = DEPARTURE_3PM
+
+# Route list: [emoji, departure_time, route_label]
+const ROUTES = [
+	["🌅", "5:00 AM",  "Windsor \u2192 Toronto"],
+	["🌄", "9:30 AM",  "Toronto \u2192 Windsor"],
+	["🌇", "3:00 PM",  "Windsor \u2192 Toronto"],
+]
 
 # Booking details
+var selected_date: String = ""
 var route: String = ""
 var departure_time: String = ""
 var name: String = ""
@@ -20,9 +33,8 @@ var date: String = ""
 var booking_reference: String = ""
 
 func generate_reference() -> String:
-	# Generate a random 8-character booking reference
 	var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-	var ref = "WTR-"
+	var ref = "JRS-"
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	for i in range(6):
@@ -32,6 +44,8 @@ func generate_reference() -> String:
 
 func to_dict() -> Dictionary:
 	return {
+		"booking_reference": booking_reference,
+		"selected_date": selected_date,
 		"route": route,
 		"departure_time": departure_time,
 		"name": name,
@@ -40,6 +54,4 @@ func to_dict() -> Dictionary:
 		"num_bags": num_bags,
 		"pickup_address": pickup_address,
 		"dropoff_address": dropoff_address,
-		"date": date,
-		"booking_reference": booking_reference
 	}
