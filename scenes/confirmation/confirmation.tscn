@@ -1,14 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4h6m8q0s3y9"]
+[gd_scene load_steps=2 format=3 uid="uid://d4h6m8q0s3y9"]
 
 [ext_resource type="Script" path="res://scenes/confirmation/confirmation.gd" id="1_conf"]
-[ext_resource type="Theme" path="res://assets/themes/app_theme.tres" id="2_theme"]
 
 [node name="Confirmation" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource("2_theme")
 script = ExtResource("1_conf")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -16,200 +14,48 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(1, 1, 1, 1)
-
-[node name="TopBar" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 390.0
-offset_bottom = 60.0
-grow_horizontal = 2
-
-[node name="TopTitle" type="Label" parent="TopBar"]
-layout_mode = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "Booking Confirmed!"
-horizontal_alignment = 1
-vertical_alignment = 1
-theme_override_font_sizes/font_size = 22
-theme_override_colors/font_color = Color(0.102, 0.141, 0.494, 1)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
-anchors_preset = 0
-offset_left = 0.0
-offset_top = 60.0
-offset_right = 390.0
-offset_bottom = 844.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="ContentContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="ContentVBox" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 14
 
-[node name="SuccessIcon" type="Label" parent="ScrollContainer/ContentContainer"]
+[node name="SuccessIcon" type="Label" parent="ScrollContainer/ContentVBox"]
 layout_mode = 2
-text = "✅"
+text = "OK"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 48
 
-[node name="ReferenceLabel" type="Label" parent="ScrollContainer/ContentContainer"]
+[node name="SuccessTitle" type="Label" parent="ScrollContainer/ContentVBox"]
 layout_mode = 2
-text = "Booking Reference: WTR-XXXXXX"
+text = "Booking Confirmed!"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 20
-theme_override_colors/font_color = Color(0.102, 0.141, 0.494, 1)
 
-[node name="Separator1" type="HSeparator" parent="ScrollContainer/ContentContainer"]
+[node name="RefLabel" type="Label" parent="ScrollContainer/ContentVBox"]
 layout_mode = 2
-
-[node name="SummaryTitle" type="Label" parent="ScrollContainer/ContentContainer"]
-layout_mode = 2
-text = "Booking Summary"
+text = "JRS-XXXXXX"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 18
 
-[node name="SummaryGrid" type="GridContainer" parent="ScrollContainer/ContentContainer"]
-layout_mode = 2
-columns = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 8
-
-[node name="RouteKey" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-text = "Route:"
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
-
-[node name="RouteValue" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "—"
-theme_override_font_sizes/font_size = 15
-
-[node name="DepartureKey" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-text = "Departure:"
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
-
-[node name="DepartureValue" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "—"
-theme_override_font_sizes/font_size = 15
-
-[node name="DateKey" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-text = "Date:"
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
-
-[node name="DateValue" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "—"
-theme_override_font_sizes/font_size = 15
-
-[node name="NameKey" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-text = "Name:"
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
-
-[node name="NameValue" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "—"
-theme_override_font_sizes/font_size = 15
-
-[node name="PhoneKey" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-text = "Phone:"
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
-
-[node name="PhoneValue" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "—"
-theme_override_font_sizes/font_size = 15
-
-[node name="EmailKey" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-text = "Email:"
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
-
-[node name="EmailValue" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "—"
-theme_override_font_sizes/font_size = 15
-
-[node name="BagsKey" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-text = "Bags:"
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
-
-[node name="BagsValue" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "—"
-theme_override_font_sizes/font_size = 15
-
-[node name="PickupKey" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-text = "Pickup:"
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
-
-[node name="PickupValue" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "—"
-autowrap_mode = 3
-theme_override_font_sizes/font_size = 15
-
-[node name="DropoffKey" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-text = "Drop-off:"
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
-
-[node name="DropoffValue" type="Label" parent="ScrollContainer/ContentContainer/SummaryGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "—"
-autowrap_mode = 3
-theme_override_font_sizes/font_size = 15
-
-[node name="Separator2" type="HSeparator" parent="ScrollContainer/ContentContainer"]
+[node name="SummaryCard" type="VBoxContainer" parent="ScrollContainer/ContentVBox"]
 layout_mode = 2
 
-[node name="InvoiceLabel" type="Label" parent="ScrollContainer/ContentContainer"]
+[node name="EmailSentLabel" type="Label" parent="ScrollContainer/ContentVBox"]
 layout_mode = 2
-text = "An invoice will be sent to your email."
+text = "Booking details have been sent to josemon619@gmail.com"
 horizontal_alignment = 1
 autowrap_mode = 3
-theme_override_font_sizes/font_size = 15
-theme_override_colors/font_color = Color(0.18, 0.49, 0.2, 1)
 
-[node name="BackToHomeBtn" type="Button" parent="ScrollContainer/ContentContainer"]
+[node name="BookAnotherBtn" type="Button" parent="ScrollContainer/ContentVBox"]
 layout_mode = 2
 custom_minimum_size = Vector2(0, 60)
-text = "Back to Home"
-theme_override_font_sizes/font_size = 18
+text = "Book Another Ride"
 
-[node name="BottomSpacer" type="Control" parent="ScrollContainer/ContentContainer"]
+[node name="BottomSpacer" type="Control" parent="ScrollContainer/ContentVBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 40)
 
-[connection signal="pressed" from="ScrollContainer/ContentContainer/BackToHomeBtn" to="." method="_on_back_to_home_pressed"]
+[connection signal="pressed" from="ScrollContainer/ContentVBox/BookAnotherBtn" to="." method="_on_book_another_pressed"]

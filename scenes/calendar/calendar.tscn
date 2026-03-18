@@ -1,0 +1,116 @@
+[gd_scene load_steps=2 format=3 uid="uid://g7l9q1u5x3a1"]
+
+[ext_resource type="Script" path="res://scenes/calendar/calendar.gd" id="1_cal"]
+
+[node name="Calendar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_cal")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MainVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 0.0
+offset_right = 374.0
+offset_bottom = 844.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="VBoxContainer" parent="MainVBox"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MainVBox/Header"]
+layout_mode = 2
+text = "Jo's Ride Share"
+horizontal_alignment = 1
+
+[node name="TaglineLabel" type="Label" parent="MainVBox/Header"]
+layout_mode = 2
+text = "Windsor \u2194 Toronto Daily Service"
+horizontal_alignment = 1
+
+[node name="MonthNav" type="HBoxContainer" parent="MainVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="PrevMonthBtn" type="Button" parent="MainVBox/MonthNav"]
+layout_mode = 2
+text = "\u2039"
+
+[node name="MonthYearLabel" type="Label" parent="MainVBox/MonthNav"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+
+[node name="NextMonthBtn" type="Button" parent="MainVBox/MonthNav"]
+layout_mode = 2
+text = "\u203a"
+
+[node name="DayHeaders" type="GridContainer" parent="MainVBox"]
+layout_mode = 2
+columns = 7
+
+[node name="HeaderS1" type="Label" parent="MainVBox/DayHeaders"]
+layout_mode = 2
+text = "S"
+horizontal_alignment = 1
+
+[node name="HeaderM" type="Label" parent="MainVBox/DayHeaders"]
+layout_mode = 2
+text = "M"
+horizontal_alignment = 1
+
+[node name="HeaderT1" type="Label" parent="MainVBox/DayHeaders"]
+layout_mode = 2
+text = "T"
+horizontal_alignment = 1
+
+[node name="HeaderW" type="Label" parent="MainVBox/DayHeaders"]
+layout_mode = 2
+text = "W"
+horizontal_alignment = 1
+
+[node name="HeaderT2" type="Label" parent="MainVBox/DayHeaders"]
+layout_mode = 2
+text = "T"
+horizontal_alignment = 1
+
+[node name="HeaderF" type="Label" parent="MainVBox/DayHeaders"]
+layout_mode = 2
+text = "F"
+horizontal_alignment = 1
+
+[node name="HeaderS2" type="Label" parent="MainVBox/DayHeaders"]
+layout_mode = 2
+text = "S"
+horizontal_alignment = 1
+
+[node name="CalendarGrid" type="GridContainer" parent="MainVBox"]
+layout_mode = 2
+columns = 7
+
+[node name="SelectedDateLabel" type="Label" parent="MainVBox"]
+layout_mode = 2
+text = "Tap a date to get started"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ContinueBtn" type="Button" parent="MainVBox"]
+layout_mode = 2
+text = "Continue \u2192"
+
+[connection signal="pressed" from="MainVBox/MonthNav/PrevMonthBtn" to="." method="_on_prev_month_pressed"]
+[connection signal="pressed" from="MainVBox/MonthNav/NextMonthBtn" to="." method="_on_next_month_pressed"]
+[connection signal="pressed" from="MainVBox/ContinueBtn" to="." method="_on_continue_pressed"]
